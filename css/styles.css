@@ -1,0 +1,180 @@
+@charset "UTF-8";
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+.body {
+  height: 100%;
+  min-width: 320px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*npx sass --watch scss:css*/
+.header {
+  background-color: #D3D3C6;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.phoneLink,
+.phoneNumber {
+  color: #585C69;
+}
+
+@media (max-width: 320px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .icon {
+    width: 100px;
+    height: auto;
+    fill: currentColor;
+  }
+  .logoBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+  }
+  .rowDirection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+  .phone,
+  .telegramPicture,
+  .viberPicture {
+    fill: currentColor;
+    width: 22px;
+    height: 22px;
+  }
+  .phoneBox,
+  .telegramBox,
+  .viberBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+  }
+  .headerTextContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    color: #585C69;
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: #F9F8D5;
+  }
+  .phoneLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .phoneNumber {
+    font-size: 22px;
+  }
+  .nav_wrapper {
+    width: 100%;
+  }
+  .navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #F9F8D5;
+  }
+  .nav_Link {
+    font-weight: 700;
+    color: #585C69;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, #585C69 90%, #585C69 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+    transition: background-size 300ms;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  .nav_Link:hover {
+    background-size: 100% 100%;
+    background-position-x: left;
+  }
+}
+/*
+// Мобільні пристрої (від 321px до 480px)
+@media (min-width: $breakpoint-mobile-small + 1) and (max-width: $breakpoint-mobile) {
+    // Порожній, як просив
+}
+
+// Планшети (від 481px до 768px)
+@media (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet) {
+    // Порожній, як просив
+}
+
+// Десктопи (від 769px до 1024px)
+@media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-desktop-small) {
+    .icon:hover,
+    .phone:hover {
+        color: $third-color;
+    }
+}
+
+// Великі десктопи (від 1025px і більше)
+@media (min-width: $breakpoint-desktop) {
+    // Порожній, як просив
+}
+  */
+.hero {
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/Original_background_hero.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: center;
+}
+
+@media (max-width: 320px) {
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #D3D3C6;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
