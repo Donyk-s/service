@@ -1,0 +1,127 @@
+/*npx sass --watch scss:css*/
+@use '../abstracts/variables' as *; 
+@use '../abstracts/mixins';
+
+  // Базові стилі хедера
+.header {
+    background-color: $primary-color;
+    font-family: $font-family;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.phoneLink,
+.phoneNumber {
+    color: $secondary-color;
+}
+
+// Мобільні пристрої (до 320px)
+@media (max-width: $breakpoint-mobile-small) {
+    .header {
+        @include mixins.flex(column, center, center);
+        text-align: center;
+    }
+
+    .icon {
+        @include mixins.size(100px, auto);
+        fill: currentColor;
+    }
+
+    .logoBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(60px);
+    }
+
+    .rowDirection {
+        @include mixins.flex(row, flex-start, center);
+        gap: 10px;
+    }
+
+    // Загальні стилі для іконок
+    .phone,
+    .telegramPicture,
+    .viberPicture {
+        fill: currentColor;
+        @include mixins.size(22px);
+    }
+
+    // Контейнери для іконок
+    .phoneBox,
+    .telegramBox,
+    .viberBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(24px);
+    }
+
+    .headerTextContainer {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+        color: $secondary-color;
+        text-transform: uppercase;
+        font-size: $font-size;
+        background-color: $third-color;
+    }
+
+    .phoneLine {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+    }
+
+    .phoneNumber {
+        font-size: 22px;
+    }
+
+    .nav_wrapper {
+        width: 100%;
+    }
+
+    .navList {
+        @include mixins.flex(row, space-evenly, center);
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: $third-color;
+    }
+
+    .nav_Link {
+        font-weight: $font-weight-bold;
+        color: $secondary-color;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+        transition: background-size 300ms;
+        width: 100%;
+        display: block;
+        text-align: center;
+
+        &:hover {
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
+    }
+}
+/*
+// Мобільні пристрої (від 321px до 480px)
+@media (min-width: $breakpoint-mobile-small + 1) and (max-width: $breakpoint-mobile) {
+    // Порожній, як просив
+}
+
+// Планшети (від 481px до 768px)
+@media (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet) {
+    // Порожній, як просив
+}
+
+// Десктопи (від 769px до 1024px)
+@media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-desktop-small) {
+    .icon:hover,
+    .phone:hover {
+        color: $third-color;
+    }
+}
+
+// Великі десктопи (від 1025px і більше)
+@media (min-width: $breakpoint-desktop) {
+    // Порожній, як просив
+}
+  */
