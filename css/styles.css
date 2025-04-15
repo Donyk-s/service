@@ -130,6 +130,19 @@ a {
     background-size: 100% 100%;
     background-position-x: left;
   }
+  .menu-button {
+    background-color: transparent;
+    display: inline-flex;
+  }
+  .menu-button .icon-cross {
+    display: none;
+  }
+  .menu-button .is-open .icon-cross {
+    display: block;
+  }
+  .menu-button .is-open .icon-menu {
+    display: none;
+  }
 }
 /*
 // Мобільні пристрої (від 321px до 480px)

@@ -13,3 +13,10 @@ const isMobile = {
     isMobile.Opera() ||
     isMobile.Windows(),
 };
+const burgerMenu = document.querySelector("[data-burger-menu]");
+burgerMenu.addEventListener("click", () =>{
+  const expanded = burgerMenu.getAttribute("aria-expanded") === "true"|| false;
+  //const menu = document.querySelector("[data-menu]");
+  burgerMenu.classList.toggle("is-open");
+  //burgerMenu.setAttribute("aria-expanded", !expanded);
+})

@@ -1,4 +1,4 @@
-/*npx sass --watch scss:css*/
+/*npx sass --watch scss:css*/ 
 @use '../abstracts/variables' as *; 
 @use '../abstracts/mixins';
 
@@ -101,6 +101,19 @@
             background-size: 100% 100%;
             background-position-x: left;
         }
+    }
+    .menu-button{
+        background-color: transparent;
+        display: inline-flex;
+    }
+    .menu-button .icon-cross {
+       display: none;
+    }
+    .menu-button .is-open .icon-cross {
+        display: block;
+    }
+    .menu-button .is-open .icon-menu {
+        display: none;
     }
 }
 /*
