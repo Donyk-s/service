@@ -21,140 +21,367 @@ a {
 }
 
 /*npx sass --watch scss:css*/
+/*
+  // Базові стилі хедера
 .header {
-  background-color: #D3D3C6;
-  font-family: "Roboto", sans-serif;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 1440px;
-  margin: 0 auto;
+    background-color: $primary-color;
+    font-family: $font-family;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .phoneLink,
 .phoneNumber {
-  color: #585C69;
+    color: $secondary-color;
+}
+.nav_wrapper {
+    display: none;
+}
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .icon-cross {
+    display: none;
+  }
+
+
+// Мобільні пристрої (до 320px)
+@media (max-width: $breakpoint-mobile-small) {
+    .header {
+        @include mixins.flex(column, center, center);
+        text-align: center;
+    }
+
+    .icon {
+        @include mixins.size(100px, auto);
+        fill: currentColor;
+    }
+
+    .logoBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(60px);
+    }
+
+    .rowDirection {
+        @include mixins.flex(row, flex-start, center);
+        gap: 10px;
+    }
+
+    // Загальні стилі для іконок
+    .phone,
+    .telegramPicture,
+    .viberPicture {
+        fill: currentColor;
+        @include mixins.size(22px);
+    }
+
+    // Контейнери для іконок
+    .phoneBox,
+    .telegramBox,
+    .viberBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(24px);
+    }
+
+    .headerTextContainer {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+        color: $secondary-color;
+        text-transform: uppercase;
+        font-size: $font-size;
+        background-color: $third-color;
+    }
+
+    .phoneLine {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+    }
+
+    .phoneNumber {
+        font-size: 22px;
+    }
+
+    .nav_wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        z-index: 1000;
+        @include mixins.flex(column, center, center);
+
+    }
+    .nav_wrapper.is-open {
+        display: block; 
+      }
+
+    .navList {
+        flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    }
+
+    .nav_Link {
+        font-weight: $font-weight-bold;
+        color: $secondary-color;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+        transition: background-size 300ms;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 24px;
+
+        &:hover {
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
+    }
+    .menu-button{
+        background-color: transparent;
+        display: inline-flex;
+    }
+    .menu-button .icon-cross {
+       display: none;
+    }
+    .menu-button .is-open .icon-cross {
+        display: block;
+    }
+    .menu-button .is-open .icon-burger {
+        display: none;
+    }
 }
 
-@media (max-width: 320px) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+@media (min-width: 321px) and (max-width: $breakpoint-mobile) {
+    .header {
+      @include mixins.flex(column, center, center);
+      text-align: center;
+    }
+
+    .icon {
+        @include mixins.size(100px, auto);
+        fill: currentColor;
+    }
+
+    .logoBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(60px);
+    }
+
+    .rowDirection {
+        @include mixins.flex(row, flex-start, center);
+        gap: 10px;
+    }
+
+    // Загальні стилі для іконок
+    .phone,
+    .telegramPicture,
+    .viberPicture {
+        fill: currentColor;
+        @include mixins.size(22px);
+    }
+
+    // Контейнери для іконок
+    .phoneBox,
+    .telegramBox,
+    .viberBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(24px);
+    }
+
+    .headerTextContainer {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+        color: $secondary-color;
+        text-transform: uppercase;
+        font-size: $font-size;
+        background-color: $third-color;
+    }
+
+    .phoneLine {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+    }
+
+    .phoneNumber {
+        font-size: 22px;
+    }
+
+    .nav_wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        z-index: 1000;
+        @include mixins.flex(column, center, center);
+
+    }
+    .nav_wrapper.is-open {
+        display: block; 
+      }
+
+    .navList {
+        flex-direction: column;
     align-items: center;
-    text-align: center;
-  }
-  .icon {
-    width: 100px;
-    height: auto;
-    fill: currentColor;
-  }
-  .logoBox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    gap: 30px;
+    }
+
+    .nav_Link {
+        font-weight: $font-weight-bold;
+        color: $secondary-color;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+        transition: background-size 300ms;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 24px;
+
+        &:hover {
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
+    }
+    .menu-button{
+        background-color: transparent;
+        display: inline-flex;
+    }
+    .menu-button .icon-cross {
+       display: none;
+    }
+    .menu-button .is-open .icon-cross {
+        display: block;
+    }
+    .menu-button .is-open .icon-burger {
+        display: none;
+    }
+}
+
+
+@media (min-width: 481px) and (max-width: $breakpoint-tablet) {
+    .header {
+        @include mixins.flex(column, center, center);
+        text-align: center;
+    }
+
+    .icon {
+        @include mixins.size(100px, auto);
+        fill: currentColor;
+    }
+
+    .logoBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(60px);
+    }
+
+    .rowDirection {
+        @include mixins.flex(row, flex-start, center);
+        gap: 10px;
+    }
+
+    // Загальні стилі для іконок
+    .phone,
+    .telegramPicture,
+    .viberPicture {
+        fill: currentColor;
+        @include mixins.size(22px);
+    }
+
+    // Контейнери для іконок
+    .phoneBox,
+    .telegramBox,
+    .viberBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(24px);
+    }
+
+    .headerTextContainer {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+        color: $secondary-color;
+        text-transform: uppercase;
+        font-size: $font-size;
+        background-color: $third-color;
+    }
+
+    .phoneLine {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+    }
+
+    .phoneNumber {
+        font-size: 22px;
+    }
+
+    .nav_wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        z-index: 1000;
+        @include mixins.flex(column, center, center);
+
+    }
+    .nav_wrapper.is-open {
+        display: block; 
+      }
+
+    .navList {
+        flex-direction: column;
     align-items: center;
-    width: 60px;
-    height: 60px;
-  }
-  .rowDirection {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-  }
-  .phone,
-  .telegramPicture,
-  .viberPicture {
-    fill: currentColor;
-    width: 22px;
-    height: 22px;
-  }
-  .phoneBox,
-  .telegramBox,
-  .viberBox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-  }
-  .headerTextContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    color: #585C69;
-    text-transform: uppercase;
-    font-size: 12px;
-    background-color: #F9F8D5;
-  }
-  .phoneLine {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-  }
-  .phoneNumber {
-    font-size: 22px;
-  }
-  .nav_wrapper {
-    width: 100%;
-  }
-  .navList {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #F9F8D5;
-  }
-  .nav_Link {
-    font-weight: 700;
-    color: #585C69;
-    background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, #585C69 90%, #585C69 100%);
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    background-position-x: right;
-    transition: background-size 300ms;
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-  .nav_Link:hover {
-    background-size: 100% 100%;
-    background-position-x: left;
-  }
-  .menu-button {
-    background-color: transparent;
-    display: inline-flex;
-  }
-  .menu-button .icon-cross {
-    display: none;
-  }
-  .menu-button .is-open .icon-cross {
-    display: block;
-  }
-  .menu-button .is-open .icon-menu {
-    display: none;
-  }
+    gap: 30px;
+    }
+
+    .nav_Link {
+        font-weight: $font-weight-bold;
+        color: $secondary-color;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+        transition: background-size 300ms;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 24px;
+
+        &:hover {
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
+    }
+    .menu-button{
+        background-color: transparent;
+        display: inline-flex;
+    }
+    .menu-button .icon-cross {
+       display: none;
+    }
+    .menu-button .is-open .icon-cross {
+        display: block;
+    }
+    .menu-button .is-open .icon-burger {
+        display: none;
+    }
 }
 /*
-// Мобільні пристрої (від 321px до 480px)
-@media (min-width: $breakpoint-mobile-small + 1) and (max-width: $breakpoint-mobile) {
-    // Порожній, як просив
-}
-
-// Планшети (від 481px до 768px)
-@media (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet) {
-    // Порожній, як просив
-}
-
 // Десктопи (від 769px до 1024px)
 @media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-desktop-small) {
     .icon:hover,
@@ -168,6 +395,265 @@ a {
     // Порожній, як просив
 }
   */
+/*npx sass --watch scss:css*/
+/*@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';*/
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #D3D3C6;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.headerTextContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  color: #585C69;
+  text-transform: uppercase;
+  font-size: 12px;
+  background-color: #F9F8D5;
+  padding: 10px 0;
+}
+
+.company-name {
+  font-weight: 700;
+}
+
+.highlight-letter {
+  color: #585C69;
+}
+
+.phoneLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.phoneLink,
+.phoneNumber {
+  color: #585C69;
+  font-size: 22px;
+}
+
+.phoneLink:hover,
+.phoneNumber:hover {
+  color: #F9F8D5;
+}
+
+.icon {
+  width: 100px;
+  height: auto;
+  fill: currentColor;
+}
+
+.logoBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.rowDirection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone,
+.telegramPicture,
+.viberPicture {
+  fill: currentColor;
+  width: 22px;
+  height: 22px;
+}
+
+.phoneBox,
+.telegramBox,
+.viberBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.menu-button {
+  display: inline-flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.icon-cross {
+  display: none;
+}
+
+.menu-button.is-open .icon-burger {
+  display: none;
+}
+
+.menu-button.is-open .icon-cross {
+  display: block;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.nav_wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D3D3C6;
+  z-index: 1000;
+}
+
+.nav_wrapper.is-open {
+  display: block;
+}
+
+.navList {
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0;
+}
+
+.nav_Link {
+  font-weight: 700;
+  color: #585C69;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, #585C69 90%, #585C69 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position-x: right;
+  transition: background-size 300ms;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px 0;
+}
+.nav_Link:hover {
+  background-size: 100% 100%;
+  background-position-x: left;
+}
+
+@media (max-width: 320px) {
+  .headerTextContainer {
+    font-size: 12px;
+  }
+  .phoneBox,
+  .telegramBox,
+  .viberBox {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .phone,
+  .telegramPicture,
+  .viberPicture {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .phoneNumber {
+    font-size: 20px;
+  }
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .headerTextContainer {
+    font-size: 16px;
+  }
+  .phoneNumber {
+    font-size: 22px;
+  }
+  .headerTextContainer {
+    font-size: clamp(12px, 2vw, 16px);
+  }
+  .phoneBox,
+  .telegramBox,
+  .viberBox {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .phone,
+  .telegramPicture,
+  .viberPicture {
+    display: none;
+  }
+  .phoneNumber {
+    font-size: 24px;
+  }
+}
+@media (min-width: 769px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  .headerTextContainer {
+    flex-direction: column;
+    width: auto;
+    background-color: transparent;
+  }
+  .phoneLine {
+    width: auto;
+  }
+  .menu-button {
+    display: none;
+  }
+  .nav_wrapper {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+  .navList {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .nav_Link {
+    font-size: 16px;
+    width: auto;
+    padding: 0;
+  }
+  .icon:hover,
+  .phone:hover {
+    color: #F9F8D5;
+  }
+}
 .hero {
   background-color: #D3D3C6;
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../img/768_background_hero@1x.webp");

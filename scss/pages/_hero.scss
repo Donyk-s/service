@@ -13,54 +13,54 @@
 
   // Мобільні до 320px
   @media (max-width: $breakpoint-mobile-small) {
-      background-image: $hero-gradient, url('../img/360_background_hero@1x.webp');
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: $primary-color;
-      font-family: $font-family;
-      font-size: $font-size-large;
-      font-weight: $font-weight-bold;
+    background-image: $hero-gradient, url('../img/360_background_hero@1x.webp');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $primary-color;
+    font-family: $font-family;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
   }
-  @media (max-width: $breakpoint-mobile-small) and (-webkit-min-device-pixel-ratio: 2), 
-         (max-width: $breakpoint-mobile-small) and (min-resolution: 192dpi) {
-      background-image: $hero-gradient, url('../img/360_background_hero@2x.webp');
+  @media (max-width: $breakpoint-mobile-small) and (-webkit-min-device-pixel-ratio: 2),
+    (max-width: $breakpoint-mobile-small) and (min-resolution: 192dpi) {
+    background-image: $hero-gradient, url('../img/360_background_hero@2x.webp');
   }
 
   // Мобільні від 321px до 480px
   @media (min-width: #{$breakpoint-mobile-small + 1}) and (max-width: $breakpoint-mobile) {
-      background-image: $hero-gradient, url('../img/480_background_hero@1x.webp');
+    background-image: $hero-gradient, url('../img/480_background_hero@1x.webp');
   }
   @media (min-width: #{$breakpoint-mobile-small + 1}) and (max-width: $breakpoint-mobile) and (-webkit-min-device-pixel-ratio: 2), 
          (min-width: #{$breakpoint-mobile-small + 1}) and (max-width: $breakpoint-mobile) and (min-resolution: 192dpi) {
-      background-image: $hero-gradient, url('../img/480_background_hero@2x.webp');
+    background-image: $hero-gradient, url('../img/480_background_hero@2x.webp');
   }
 
   // Планшети від 481px до 768px
   @media (min-width: #{$breakpoint-mobile + 1}) and (max-width: $breakpoint-tablet) {
-      background-image: $hero-gradient, url('../img/768_background_hero@1x.webp');
+    background-image: $hero-gradient, url('../img/768_background_hero@1x.webp');
   }
   @media (min-width: #{$breakpoint-mobile + 1}) and (max-width: $breakpoint-tablet) and (-webkit-min-device-pixel-ratio: 2), 
          (min-width: #{$breakpoint-mobile + 1}) and (max-width: $breakpoint-tablet) and (min-resolution: 192dpi) {
-      background-image: $hero-gradient, url('../img/768_background_hero@2x.webp');
+    background-image: $hero-gradient, url('../img/768_background_hero@2x.webp');
   }
 
   // Десктопи від 769px до 1024px
   @media (min-width: #{$breakpoint-tablet + 1}) and (max-width: $breakpoint-desktop-small) {
-      background-image: $hero-gradient, url('../img/768_background_hero@1x.webp');
+    background-image: $hero-gradient, url('../img/768_background_hero@1x.webp');
   }
   @media (min-width: #{$breakpoint-tablet + 1}) and (max-width: $breakpoint-desktop-small) and (-webkit-min-device-pixel-ratio: 2), 
          (min-width: #{$breakpoint-tablet + 1}) and (max-width: $breakpoint-desktop-small) and (min-resolution: 192dpi) {
-      background-image: $hero-gradient, url('../img/768_background_hero@2x.webp');
+    background-image: $hero-gradient, url('../img/768_background_hero@2x.webp');
   }
 
   // Десктопи від 1025px
   @media (min-width: $breakpoint-desktop) {
-      background-image: $hero-gradient, url('../img/Big_background_hero@1x.webp');
+    background-image: $hero-gradient, url('../img/Big_background_hero@1x.webp');
   }
-  @media (min-width: $breakpoint-desktop) and (-webkit-min-device-pixel-ratio: 2), 
-         (min-width: $breakpoint-desktop) and (min-resolution: 192dpi) {
-      background-image: $hero-gradient, url('../img/Big_background_hero@2x.webp');
+  @media (min-width: $breakpoint-desktop) and (-webkit-min-device-pixel-ratio: 2),
+    (min-width: $breakpoint-desktop) and (min-resolution: 192dpi) {
+    background-image: $hero-gradient, url('../img/Big_background_hero@2x.webp');
   }
 }

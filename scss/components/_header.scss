@@ -1,7 +1,7 @@
 /*npx sass --watch scss:css*/ 
 @use '../abstracts/variables' as *; 
 @use '../abstracts/mixins';
-
+/*
   // Базові стилі хедера
 .header {
     background-color: $primary-color;
@@ -15,6 +15,19 @@
 .phoneNumber {
     color: $secondary-color;
 }
+.nav_wrapper {
+    display: none;
+}
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .icon-cross {
+    display: none;
+  }
+  
 
 // Мобільні пристрої (до 320px)
 @media (max-width: $breakpoint-mobile-small) {
@@ -73,16 +86,25 @@
     }
 
     .nav_wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        z-index: 1000;
+        @include mixins.flex(column, center, center);
+        
     }
+    .nav_wrapper.is-open {
+        display: block; 
+      }
 
     .navList {
-        @include mixins.flex(row, space-evenly, center);
-        gap: 10px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background-color: $third-color;
+        flex-direction: column;
+    align-items: center;
+    gap: 30px;
     }
 
     .nav_Link {
@@ -96,6 +118,7 @@
         width: 100%;
         display: block;
         text-align: center;
+        font-size: 24px;
 
         &:hover {
             background-size: 100% 100%;
@@ -112,21 +135,233 @@
     .menu-button .is-open .icon-cross {
         display: block;
     }
-    .menu-button .is-open .icon-menu {
+    .menu-button .is-open .icon-burger {
+        display: none;
+    }
+}
+
+
+@media (min-width: #{$breakpoint-mobile-small + 1}) and (max-width: $breakpoint-mobile) {
+    .header {
+      @include mixins.flex(column, center, center);
+      text-align: center;
+    }
+       
+    .icon {
+        @include mixins.size(100px, auto);
+        fill: currentColor;
+    }
+
+    .logoBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(60px);
+    }
+
+    .rowDirection {
+        @include mixins.flex(row, flex-start, center);
+        gap: 10px;
+    }
+
+    // Загальні стилі для іконок
+    .phone,
+    .telegramPicture,
+    .viberPicture {
+        fill: currentColor;
+        @include mixins.size(22px);
+    }
+
+    // Контейнери для іконок
+    .phoneBox,
+    .telegramBox,
+    .viberBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(24px);
+    }
+
+    .headerTextContainer {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+        color: $secondary-color;
+        text-transform: uppercase;
+        font-size: $font-size;
+        background-color: $third-color;
+    }
+
+    .phoneLine {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+    }
+
+    .phoneNumber {
+        font-size: 22px;
+    }
+
+    .nav_wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        z-index: 1000;
+        @include mixins.flex(column, center, center);
+        
+    }
+    .nav_wrapper.is-open {
+        display: block; 
+      }
+
+    .navList {
+        flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    }
+
+    .nav_Link {
+        font-weight: $font-weight-bold;
+        color: $secondary-color;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+        transition: background-size 300ms;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 24px;
+
+        &:hover {
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
+    }
+    .menu-button{
+        background-color: transparent;
+        display: inline-flex;
+    }
+    .menu-button .icon-cross {
+       display: none;
+    }
+    .menu-button .is-open .icon-cross {
+        display: block;
+    }
+    .menu-button .is-open .icon-burger {
+        display: none;
+    }
+}
+
+
+@media (min-width: #{$breakpoint-mobile + 1}) and (max-width: $breakpoint-tablet) {
+    .header {
+        @include mixins.flex(column, center, center);
+        text-align: center;
+    }
+
+    .icon {
+        @include mixins.size(100px, auto);
+        fill: currentColor;
+    }
+
+    .logoBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(60px);
+    }
+
+    .rowDirection {
+        @include mixins.flex(row, flex-start, center);
+        gap: 10px;
+    }
+
+    // Загальні стилі для іконок
+    .phone,
+    .telegramPicture,
+    .viberPicture {
+        fill: currentColor;
+        @include mixins.size(22px);
+    }
+
+    // Контейнери для іконок
+    .phoneBox,
+    .telegramBox,
+    .viberBox {
+        @include mixins.flex(row, center, center);
+        @include mixins.size(24px);
+    }
+
+    .headerTextContainer {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+        color: $secondary-color;
+        text-transform: uppercase;
+        font-size: $font-size;
+        background-color: $third-color;
+    }
+
+    .phoneLine {
+        @include mixins.flex(row, space-evenly, center);
+        width: 100%;
+    }
+
+    .phoneNumber {
+        font-size: 22px;
+    }
+
+    .nav_wrapper {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $primary-color;
+        z-index: 1000;
+        @include mixins.flex(column, center, center);
+        
+    }
+    .nav_wrapper.is-open {
+        display: block; 
+      }
+
+    .navList {
+        flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    }
+
+    .nav_Link {
+        font-weight: $font-weight-bold;
+        color: $secondary-color;
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position-x: right;
+        transition: background-size 300ms;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 24px;
+
+        &:hover {
+            background-size: 100% 100%;
+            background-position-x: left;
+        }
+    }
+    .menu-button{
+        background-color: transparent;
+        display: inline-flex;
+    }
+    .menu-button .icon-cross {
+       display: none;
+    }
+    .menu-button .is-open .icon-cross {
+        display: block;
+    }
+    .menu-button .is-open .icon-burger {
         display: none;
     }
 }
 /*
-// Мобільні пристрої (від 321px до 480px)
-@media (min-width: $breakpoint-mobile-small + 1) and (max-width: $breakpoint-mobile) {
-    // Порожній, як просив
-}
-
-// Планшети (від 481px до 768px)
-@media (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-tablet) {
-    // Порожній, як просив
-}
-
 // Десктопи (від 769px до 1024px)
 @media (min-width: $breakpoint-tablet + 1) and (max-width: $breakpoint-desktop-small) {
     .icon:hover,
@@ -140,3 +375,255 @@
     // Порожній, як просив
 }
   */
+
+ /*npx sass --watch scss:css*/
+/*@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';*/
+
+// Базові стилі хедера (mobile-first, для екранів <320px)
+.header {
+  @include mixins.flex(column, center, center);
+  text-align: center;
+  background-color: $primary-color;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1440px;
+  margin: 0 auto;
+
+}
+
+.headerTextContainer {
+  @include mixins.flex(row, space-evenly, center);
+  width: 100%;
+  color: $secondary-color;
+  text-transform: uppercase;
+  font-size: $font-size ;
+  background-color: $third-color;
+  padding: 10px 0;
+}
+
+.company-name {
+font-weight: $font-weight-bold;
+}
+
+.highlight-letter {
+  color: $secondary-color;
+}
+.phoneLine {
+  @include mixins.flex(row, space-evenly, center);
+  width: 100%;
+  padding: 10px 0;
+}
+
+.phoneLink,
+.phoneNumber {
+  color: $secondary-color;
+  font-size: 22px;
+}
+
+.phoneLink:hover,
+.phoneNumber:hover {
+  color: $third-color; 
+}
+
+.icon {
+  @include mixins.size(100px, auto);
+  fill: currentColor;
+}
+
+.logoBox {
+  @include mixins.flex(row, center, center);
+  @include mixins.size(60px);
+}
+
+.rowDirection {
+  @include mixins.flex(row, flex-start, center);
+  gap: 10px;
+}
+
+.phone,
+.telegramPicture,
+.viberPicture {
+  fill: currentColor;
+  @include mixins.size(22px);
+}
+
+.phoneBox,
+.telegramBox,
+.viberBox {
+  @include mixins.flex(row, center, center);
+  @include mixins.size(24px);
+}
+
+.menu-button {
+  display: inline-flex; // Показуємо бургер-меню на мобільних
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.icon-cross {
+  display: none;
+}
+
+.menu-button.is-open .icon-burger {
+  display: none;
+}
+
+.menu-button.is-open .icon-cross {
+  display: block;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.nav_wrapper {
+  display: none; // Ховаємо меню на мобільних за замовчуванням
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $primary-color;
+  z-index: 1000;
+  
+}
+
+.nav_wrapper.is-open {
+  display: block; // Показуємо при .is-open
+}
+
+.navList {
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 0;
+}
+
+.nav_Link {
+  font-weight: $font-weight-bold;
+  color: $secondary-color;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, $secondary-color 90%, $secondary-color 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position-x: right;
+  transition: background-size 300ms;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px 0;
+
+  &:hover {
+    background-size: 100% 100%;
+    background-position-x: left;
+  }
+}
+
+// Від 0 до 320px (додаткові стилі, якщо потрібні)
+@media (max-width: #{$breakpoint-mobile-small}) {
+  .headerTextContainer {
+    font-size: 12px
+  }
+  .phoneBox,
+  .telegramBox,
+  .viberBox {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .phone,
+  .telegramPicture,
+  .viberPicture {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .phoneNumber {
+    font-size: 20px;
+  }
+}
+
+// Від 321px до 480px
+@media (min-width: #{$breakpoint-mobile-small + 1}) and (max-width: #{$breakpoint-mobile}) {
+  .header {
+    @include mixins.flex(column, center, center);
+    text-align: center;
+  }
+
+  .headerTextContainer {
+    font-size: 16px;
+  }
+
+  .phoneNumber {
+    font-size: 22px;
+  }
+
+  .headerTextContainer {
+    font-size: clamp(12px, 2vw, 16px);
+  }
+  .phoneBox,
+  .telegramBox,
+  .viberBox {
+    display: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  .phone,
+.telegramPicture,
+.viberPicture {
+  display: none;
+}
+
+  .phoneNumber {
+    font-size: 24px;
+  }
+}
+
+// Від 769px (десктоп)
+@media (min-width: #{$breakpoint-tablet + 1}) {
+  .header {
+    @include mixins.flex(row, space-between, center);
+    padding: 20px;
+  }
+
+  .headerTextContainer {
+    flex-direction: column;
+    width: auto;
+    background-color: transparent;
+  }
+
+  .phoneLine {
+    width: auto;
+  }
+
+  .menu-button {
+    display: none; // Ховаємо бургер-меню на десктопі
+  }
+
+  .nav_wrapper {
+    display: flex; // Показуємо меню на десктопі
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+
+  .navList {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .nav_Link {
+    font-size: 16px;
+    width: auto;
+    padding: 0;
+  }
+
+  .icon:hover,
+  .phone:hover {
+    color: $third-color;
+  }
+}
