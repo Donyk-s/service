@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>СКД під ключ – монтаж, налаштування, сервіс | Київ та область</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
     <header class="header">
       <div class="headerTextContainer">
         <p class="company-name"><span class="highlight-letter">c</span>учасні</p>
@@ -19,44 +22,82 @@
       </div>
       <div class="phoneLine">
         <div class="logoBox">
-          <svg class="icon" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип компанії у вигляді навісного замка">
+          <svg
+            class="icon"
+            viewBox="0 0 150 150"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Логотип компанії у вигляді навісного замка"
+          >
             <use href="./img/Logo2.svg#surface1"></use>
-        </svg>
+          </svg>
         </div>
         <div class="rowDirection">
           <a class="phoneNumber" href="tel:+380730899928" rel="nofollow">073 089 9928</a>
           <div class="phoneBox">
             <a class="phoneLink" href="tel:+380730899928" rel="nofollow">
-                <svg class="phone" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Іконка телефону">
-                    <use href="img/sprite.svg#phone"></use>
-                </svg>
+              <svg
+                class="phone"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Іконка телефону"
+              >
+                <use href="img/sprite.svg#phone"></use>
+              </svg>
             </a>
-        </div>
-        <div class="telegramBox">
+          </div>
+          <div class="telegramBox">
             <a href="https://t.me/DonCarlosX">
-              <svg class="telegramPicture" width="40" height="40" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="Іконка телеграму">
+              <svg
+                class="telegramPicture"
+                width="40"
+                height="40"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Іконка телеграму"
+              >
                 <use href="img/sprite.svg#telegram"></use>
               </svg>
             </a>
-       </div>
-       <div class="viberBox">
-        <a href="viber://chat?number=%2B380730899928">
-          <svg class="viberPicture" width="40" height="40" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="Іконка вайберу">
-            <use href="img/viber.svg#viber"></use>
-          </svg>
-        </a>
-        </div> 
-        </div>
-        <button class="menu-button is-open" type="button" aria-expanded="false" data-menu-button>
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Іконка бургер-меню">
-            <use class="icon-burger" href="img/sprite.svg#burger"></use>
-            <use class="icon-cross" href="img/sprite.svg#cross"></use>
+          </div>
+          <div class="viberBox">
+            <a href="viber://chat?number=%2B380730899928">
+              <svg
+                class="viberPicture"
+                width="40"
+                height="40"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Іконка вайберу"
+              >
+                <use href="img/viber.svg#viber"></use>
               </svg>
-                 </button>
-       </div> 
-      
-        <div class="nav_wrapper">
-         <nav>
+            </a>
+          </div>
+        </div>
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+          data-menu-button
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Іконка бургер-меню"
+          >
+            <use class="icon-burger" href="./img/sprite.svg#burger"></use>
+            <use class="icon-cross" href="./img/sprite.svg#cross"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div class="nav_wrapper" id="nav">
+        <nav>
           <ul class="navList">
             <li><a href="#" class="nav_Link">Головна</a></li>
             <li><a href="#" class="nav_Link">Послуги</a></li>
@@ -64,20 +105,18 @@
             <li><a href="#" class="nav_Link">Статті</a></li>
             <li><a href="#" class="nav_Link">Кейси</a></li>
           </ul>
-         </nav>  
-       </div> 
+        </nav>
+      </div>
     </header>
     <main>
       <section class="hero">
         <div class="heroTextContainer">
           <h1 class="heroTitle">Системи контролю доступу</h1>
           <p class="heroText">Монтаж, налаштування, сервіс</p>
-          <a href="#" class="heroButton
-          ">Дізнатися більше</a>
+          <a href="#" class="heroButton">Дізнатися більше</a>
         </div>
-        
       </section>
     </main>
     <script src="./burger-menu.js"></script>
-</body>
+  </body>
 </html>
