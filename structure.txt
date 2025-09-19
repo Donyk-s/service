@@ -1,0 +1,13 @@
+scss
+├── abstracts
+│   ├── _mixins.scss
+│   └── _variables.scss
+├── base
+│   └── _reset.scss
+├── components
+│   └── _header.scss
+├── pages
+│   └── _hero.scss
+└── styles.scss
+
+4 directories, 6 files

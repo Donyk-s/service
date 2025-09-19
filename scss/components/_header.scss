@@ -84,13 +84,15 @@
   padding: 0;
   border: none;
   background-color: transparent;
- 
+
   position: relative;
   z-index: 1001;
 }
 .menu-button .icon-cross {
   display: none;
+  transform: translate(20px, 50x);
 }
+
 .menu-button.is-open .icon-cross {
   display: block;
 }
@@ -116,6 +118,8 @@
 
 .nav_wrapper.is-open {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   opacity: 1;
   transform: translateY(0);
 }
@@ -124,7 +128,6 @@
   @include mixins.flex(column, center, center);
   gap: 30px;
   padding: 0;
-  list-style: none;
 }
 
 .nav_Link {
@@ -157,7 +160,7 @@
 // Медіа-запити
 @media (max-width: #{$breakpoint-mobile-small}) {
   .headerTextContainer {
-    font-size: 12px;
+    font-size: $font-size;
   }
 
   .phoneBox,
@@ -182,7 +185,6 @@
   .phoneNumber {
     font-size: 20px;
   }
-
 }
 
 @media (min-width: #{$breakpoint-mobile-small + 1}) and (max-width: #{$breakpoint-mobile}) {
@@ -194,21 +196,32 @@
   .headerTextContainer {
     font-size: clamp(12px, 2vw, 16px);
   }
+  .phoneLine {
+    width: 100%;
+    @include mixins.flex(row, space-between, center);
+    padding: 10px 20px;
+  }
 
   .phoneBox,
   .telegramBox,
   .viberBox,
   .logoBox {
     display: none;
-    width: 0;
-    height: 0;
-    margin: 0;
   }
-
+  .phoneBox,
+  .telegramBox,
+  .viberBox {
+    display: block;
+  }
+  .icon_wrapper {
+    display: flex;
+    gap: 20px;
+    margin-left: 20px;
+  }
   .phone,
   .telegramPicture,
   .viberPicture {
-    display: none;
+    display: block;
   }
 
   .phoneNumber {
@@ -218,15 +231,21 @@
   .menu-button {
     display: inline-flex;
   }
+  .nav_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (min-width: #{$breakpoint-mobile + 1}) and (max-width: #{$breakpoint-tablet}) {
-  .header {
+  /* .header {
     padding: 15px;
   }
-
+*/
   .headerTextContainer {
-    font-size: clamp(14px, 2vw, 16px);
+    @include mixins.flex(row, space-evenly, center);
+    color: $secondary-color;
+    font-size: $font-size-large;
   }
 
   .phoneLine {
