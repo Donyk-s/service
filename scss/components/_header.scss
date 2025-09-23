@@ -12,6 +12,7 @@
   margin: 0 auto;
 }
 
+
 .headerTextContainer {
   @include mixins.flex(row, space-evenly, center);
   width: 100%;
@@ -61,7 +62,7 @@
 
 .rowDirection {
   @include mixins.flex(row, flex-start, center);
-  gap: 10px;
+  gap: 20px;
 }
 
 .phone,
@@ -77,6 +78,11 @@
   @include mixins.flex(row, center, center);
   @include mixins.size(24px);
 }
+ .icon_wrapper {
+    display: flex;
+    gap: 10px;
+  }
+
 
 .menu-button {
   display: inline-flex;
@@ -168,18 +174,6 @@
   .viberBox,
   .logoBox {
     display: none;
-    width: 0;
-    height: 0;
-    margin: 0;
-  }
-
-  .phone,
-  .telegramPicture,
-  .viberPicture {
-    display: none;
-    width: 0;
-    height: 0;
-    margin: 0;
   }
 
   .phoneNumber {
@@ -193,26 +187,18 @@
     text-align: center;
   }
 
-  .headerTextContainer {
-    font-size: clamp(12px, 2vw, 16px);
-  }
-  .phoneLine {
-    @include mixins.flex(row, space-around, center);
-    width: 100%;
-   padding: 10px 10px;
-  }
+  .headerTextContainer,
+.phoneLine {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
-  
   .logoBox {
     display: none;
-   
   }
-  
-  .icon_wrapper {
-    display: flex;
-    gap: 10px;
-    margin-left: 10px;
-  }
+
  
   .phoneNumber {
     font-size: 23px;
@@ -221,14 +207,16 @@
   .menu-button {
     display: inline-flex;
   }
-
 }
 
 @media (min-width: #{$breakpoint-mobile + 1}) and (max-width: #{$breakpoint-tablet}) {
-  /* .header {
-    padding: 15px;
-  }
-*/
+ .headerTextContainer,
+.phoneLine {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
   .headerTextContainer {
     @include mixins.flex(row, space-evenly, center);
     color: $secondary-color;
