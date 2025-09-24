@@ -10,6 +10,7 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 1440px;
   margin: 0 auto;
+  
 }
 
 
@@ -22,6 +23,8 @@
   background-color: $third-color;
   padding: 10px 0;
   gap: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .company-name {
@@ -59,12 +62,12 @@
   @include mixins.flex(row, center, center);
   @include mixins.size(60px);
 }
-
+/*
 .rowDirection {
   @include mixins.flex(row, flex-start, center);
   gap: 20px;
 }
-
+*/
 .phone,
 .telegramPicture,
 .viberPicture {
@@ -80,7 +83,7 @@
 }
  .icon_wrapper {
     display: flex;
-    gap: 10px;
+    gap: 20px;
   }
 
 

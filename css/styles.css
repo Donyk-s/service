@@ -63,6 +63,8 @@ body {
   background-color: #F9F8D5;
   padding: 10px 0;
   gap: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .company-name {
@@ -109,14 +111,12 @@ body {
   height: 60px;
 }
 
+/*
 .rowDirection {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  @include mixins.flex(row, flex-start, center);
   gap: 20px;
 }
-
+*/
 .phone,
 .telegramPicture,
 .viberPicture {
@@ -138,7 +138,7 @@ body {
 
 .icon_wrapper {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .menu-button {
